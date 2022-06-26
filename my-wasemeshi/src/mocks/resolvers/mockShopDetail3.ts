@@ -4,7 +4,7 @@ import shopDetailType from '../../interface/shopDetailType'
 const mockShopDetail: ResponseResolver<MockedRequest, typeof restContext> = (req, res, ctx) => {
   const shopDetail: shopDetailType = {
     shopName: '蔭山',
-    address: '〒123-4567 東京都新宿区早稲田南町45-7',
+    address: '〒123-4567 東京都新宿区1-3',
     tel: '0952-32-2338',
     date: '2022-06-03'
   }
