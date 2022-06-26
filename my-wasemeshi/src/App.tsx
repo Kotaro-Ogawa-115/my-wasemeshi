@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './css/App.css'
+import { Grid } from '@material-ui/core'
+import Header from './components/Header'
+import ShopList from './components/ShopList'
+import ShopInfo from './components/ShopInfo'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Grid container direction='column'>
+        <Header />
+        <Routes>
+          <Route path='/' element={<ShopList />} />
+          <Route path='shop-info/:shopId' element={<ShopInfo />} />
+        </Routes>
+      </Grid>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
