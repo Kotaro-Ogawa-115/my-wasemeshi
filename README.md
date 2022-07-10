@@ -23,6 +23,7 @@ my-wasemeshi@0.1.0
 ├── @types/react-dom@18.0.5
 ├── @types/react@18.0.12
 ├── @typescript-eslint/eslint-plugin@4.33.0 extraneous
+├── axios@0.27.2
 ├── css-loader@6.7.1
 ├── msw@0.42.1
 ├── react-dom@18.1.0
@@ -42,6 +43,7 @@ my-wasemeshi@0.1.0
 - APIの作成が未着手のため[Mock Service Worker](https://github.com/mswjs/msw)を用いてモックしています。
 - テキストフォーマッターは[standardJS](https://standardjs.com/readme-ja.html#typescript)ベースの`ts-standard`を用いています。
 - 変数の命名はリーダブルコードを元に行っていますが、リファクタリングが追いついていない部分があります。
+- material-ui@4.12.4がreact@16.8.0に対応してない問題が未解決です(2022/07/10追記)
 
 ## 実行方法
 docker およびdocker composeがインストールされていることが前提です
