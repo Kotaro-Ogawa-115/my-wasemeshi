@@ -12,7 +12,7 @@ const Registration: React.FC = () => {
           <Typography variant='subtitle1'>店名：<input type="text" onChange={ getInputShopName } /></Typography>
           <Typography variant='subtitle1'>住所：<input type="text" onChange={ getInputAddress } /></Typography>
           <Typography variant='subtitle1'>電話番号：<input type="text" onChange={ getInputTel } /></Typography>
-          <Button variant="contained" color="primary" onClick={() => registryShopDetail }>新規登録</Button>
+          <Button variant="contained" color="primary" onClick={ registryShopDetail }>新規登録</Button>
         </Grid>
       </Grid>
     )

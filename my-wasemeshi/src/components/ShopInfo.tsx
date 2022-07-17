@@ -12,7 +12,7 @@ const ShopInfo: React.FC = () => {
     return (
       <Grid container>
         <Grid sm={2} />
-        <Grid lg={8} sm={8} spacing={0} style={{ margin: 32 }}>
+        <Grid lg={8} sm={8} style={{ margin: 32 }}>
           <Typography variant='h4' component='h2' gutterBottom>{shopDetail.shopName}</Typography>
           <Typography variant='subtitle1'>住所：{shopDetail.address}</Typography>
           <Typography variant='subtitle1'>電話番号：{shopDetail.tel}</Typography>

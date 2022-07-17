@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import shopDetailType from '../interface/shopDetailType'
 
 const useRegistration = () => {
@@ -13,7 +14,9 @@ const useRegistration = () => {
 
   const getInputTel = (event: React.ChangeEvent<HTMLInputElement>) => setTel(event.target.value)
 
-  const registryShopDetail = async() => {
+  const navigate = useNavigate()
+
+  const registryShopDetail = (): void => {
     if(shopName !== null && address !== null && tel !== null){
       const shopDetail: shopDetailType = {
         shopName: shopName,
@@ -22,38 +25,15 @@ const useRegistration = () => {
         date: new Date().toDateString()
       }
 
-      try {
-        // TODO: axiosって何？
-        const response = await axios.post('http://localhost:3000/registration', shopDetail)
-      } catch (err) {
-        throw err
-      }
+      const response = axios.post('http://localhost:3000/post', shopDetail)
+        .catch(err => {
+          return err.response
+      })
+
+      navigate('/')
     }
   }
 
-  // useEffect(() => {
-  //   const load = async (): Promise<void> => {
-  //     try {
-  //       if (shopId !== undefined) {
-  //         const response = await fetch(`http://localhost:3000/getShopDetail/${shopId}`)
-
-  //         if (await !response.ok) {
-  //           throw new Error(`HTTP-Error: ${response.status}`)
-  //         }
-
-  //         const responseData: shopDetailType | null = (await response.json())
-  //         if (!isShopDetail(responseData)) {
-  //           throw new Error(`Response Invalid: ${JSON.stringify(responseData)}`)
-  //         }
-
-  //         setShopDetail(responseData)
-  //       }
-  //     } catch (err) {
-  //       throw err
-  //     }
-  //   }
-  //   void load()
-  // }, [])
   return [getInputShopName, getInputAddress, getInputTel, registryShopDetail]
 }
 
