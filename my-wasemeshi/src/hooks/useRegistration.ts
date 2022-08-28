@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import shopDetailType from '../interface/shopDetailType'
 
 const useRegistration = () => {
-  const [shopName, setShopName] = useState<string | null>(null)
-  const [address, setAddress] = useState<string | null>(null)
-  const [tel, setTel] = useState<string | null>(null)
+  const [shopName, setShopName] = useState<string | undefined>(undefined)
+  const [address, setAddress] = useState<string | undefined>(undefined)
+  const [tel, setTel] = useState<string | undefined>(undefined)
 
   const getInputShopName = (event: React.ChangeEvent<HTMLInputElement>) => setShopName(event.target.value)
 
@@ -16,8 +16,8 @@ const useRegistration = () => {
 
   const navigate = useNavigate()
 
-  const registryShopDetail = (): void => {
-    if(shopName !== null && address !== null && tel !== null){
+  const registryShopDetail = async() => {
+    if(shopName !== undefined && address !== undefined && tel !== undefined){
       const shopDetail: shopDetailType = {
         shopName: shopName,
         address: address,
@@ -25,16 +25,18 @@ const useRegistration = () => {
         date: new Date().toDateString()
       }
 
-      const response = axios.post('http://localhost:3000/post', shopDetail)
-        .catch(err => {
+      // TODO: thenメソッドの中で、postが成功した時だけリダイレクトしたい
+      // ↑やろうとするとnavigate('/')が動かない、なんで？
+      const response = await axios.post('http://localhost:3000/post', shopDetail)
+        .catch((err) => {
           return err.response
-      })
+        })
 
       navigate('/')
     }
   }
 
-  return [getInputShopName, getInputAddress, getInputTel, registryShopDetail]
+  return [getInputShopName, getInputAddress, getInputTel, registryShopDetail] as const
 }
 
 export default useRegistration
