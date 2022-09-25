@@ -32,6 +32,8 @@ const useRegistration = () => {
           return err.response
         })
 
+      console.log(response);
+
       navigate('/')
     }
   }

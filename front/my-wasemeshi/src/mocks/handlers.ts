@@ -10,7 +10,7 @@ const handlers = [
   rest.get('/getShopDetail/1', mockShopDetail1),
   rest.get('/getShopDetail/2', mockShopDetail2),
   rest.get('/getShopDetail/3', mockShopDetail3),
-  rest.post('/post', mockRegistration)
+  rest.post('/post', mockRegistration),
 ]
 
 export default handlers
