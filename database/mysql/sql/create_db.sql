@@ -4,18 +4,15 @@ CREATE DATABASE my_wasemeshi;
 
 USE my_wasemeshi;
 
+DROP TABLE IF EXISTS my_wasemeshi.shoplist
+
 CREATE TABLE IF NOT EXISTS my_wasemeshi.shoplist
 (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    genre int NOT NULL,
+    id int NOT NULL PRIMARY KEY,
     registered_at timestamp not null default current_timestamp on update current_timestamp
 );
 
-INSERT INTO shoplist (genre) value ('1');
-
-INSERT INTO shoplist (genre) value ('2');
-
-INSERT INTO shoplist (genre) value ('3');
+DROP TABLE IF EXISTS my_wasemeshi.shopdetail
 
 CREATE TABLE IF NOT EXISTS my_wasemeshi.shopdetail
 (

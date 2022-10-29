@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 import shopInfoType from '../interface/shopInfoType'
 
@@ -7,15 +8,11 @@ const useGetShopInfoList = () => {
   useEffect(() => {
     const load = async (): Promise<void> => {
       try {
-        const response = await fetch('http://localhost:3000/getShopLists')
-
-        if (await !response.ok) {
-          throw new Error(`HTTP-Error: ${response.status}`)
-        }
-
-        const responseData: shopInfoType[] | null = (await response.json())
-
-        setShopInfoList(responseData)
+        const response = await axios.get('http://localhost:3000/getShopList')
+        .catch((err) => {
+          return err.response
+        })
+        setShopInfoList(await response.data)
       } catch (err) {
         throw err
       }

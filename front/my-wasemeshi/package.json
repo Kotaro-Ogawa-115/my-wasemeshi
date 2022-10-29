@@ -43,11 +43,10 @@
     ]
   },
   "devDependencies": {
-    "msw": "^0.42.1",
     "ts-standard": "^11.0.0"
   },
   "msw": {
     "workerDirectory": "public"
   },
-  "proxy":"http://express-container:3001"
+  "proxy": "http://express-container:3001"
 }

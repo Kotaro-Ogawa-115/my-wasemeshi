@@ -1,5 +1,5 @@
 interface shopInfoType{
-  shopId: number
+  id: number
   shopName: string
   date: string
 }

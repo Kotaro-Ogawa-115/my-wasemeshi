@@ -16,7 +16,7 @@ const ShopList: React.FC = () => {
         <Grid lg={8} sm={8} spacing={10}>
           <ul>
             {shopInfoList.map((shopInfoProps: shopInfoType, key: number) => (
-              <ShopCard key={key} shopId={shopInfoProps.shopId} shopName={shopInfoProps.shopName} date={shopInfoProps.date} />
+              <ShopCard key={key} id={shopInfoProps.id} shopName={shopInfoProps.shopName} date={shopInfoProps.date} />
             ))}
           </ul>
         </Grid>

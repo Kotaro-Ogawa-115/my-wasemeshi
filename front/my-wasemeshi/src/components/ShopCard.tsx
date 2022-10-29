@@ -4,7 +4,7 @@ import { Card, CardContent, Typography } from '@material-ui/core'
 import shopInfoType from '../interface/shopInfoType'
 
 const ShopCard: React.FC<shopInfoType> = (shop) => {
-  const shopIdNum = shop.shopId
+  const shopIdNum = shop.id
   return (
     <Link to={'/shop-info/' + String(shopIdNum)} style={{ margin: 16, border: 0 }}>
       <Card>

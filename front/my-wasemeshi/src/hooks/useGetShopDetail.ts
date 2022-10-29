@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState, useEffect } from 'react'
 import shopDetailType from '../interface/shopDetailType'
 
@@ -19,18 +20,12 @@ const useGetShopDetail = (shopId: string | undefined) => {
     const load = async (): Promise<void> => {
       try {
         if (shopId !== undefined) {
-          const response = await fetch(`http://localhost:3000/getShopDetail/${shopId}`)
+          const response = await axios(`http://localhost:3000/getShopDetail/${shopId}`)
+          .catch((err) =>{
+            return err.response
+          })
 
-          if (await !response.ok) {
-            throw new Error(`HTTP-Error: ${response.status}`)
-          }
-
-          const responseData: shopDetailType | null = (await response.json())
-          if (!isShopDetail(responseData)) {
-            throw new Error(`Response Invalid: ${JSON.stringify(responseData)}`)
-          }
-
-          setShopDetail(responseData)
+          setShopDetail(await response.data)
         }
       } catch (err) {
         throw err
