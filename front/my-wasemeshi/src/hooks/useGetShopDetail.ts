@@ -1,17 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import shopDetailType from '../interface/shopDetailType'
-
-const isShopDetail = (params: unknown): params is shopDetailType => {
-  const shopDetail = params as shopDetailType
-
-  return (
-    typeof shopDetail?.shopName === 'string' &&
-    typeof shopDetail?.address === 'string' &&
-    typeof shopDetail?.tel === 'string' &&
-    typeof shopDetail?.date === 'string'
-  )
-}
+import { shopDetailType } from '../type/shopDetailType'
 
 const useGetShopDetail = (shopId: string | undefined) => {
   const [shopDetail, setShopDetail] = useState<shopDetailType | null>(null)

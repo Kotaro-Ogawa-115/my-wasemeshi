@@ -6,6 +6,7 @@ import ShopList from './components/ShopList'
 import ShopInfo from './components/ShopInfo'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Registration from './components/Registration'
+import ShopInfoEditor from './components/ShopInfoEditor'
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<ShopList />} />
           <Route path='shop-info/:shopId' element={<ShopInfo />} />
+          <Route path='shop-info/edit/:shopId' element={<ShopInfoEditor />} />
           <Route path='registration' element={<Registration />} />
         </Routes>
       </Grid>

@@ -26,10 +26,6 @@ app.use("/api", router);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/*
-ルーティングをいくつか記述。
-ルーティング処理を全て記述した最後に以下を記述。
-*/
 app.get("/getShopList",(req, res) => {
   con.query(
     'SELECT shoplist.id, shopdetail.shopname, shopdetail.registered_at FROM shoplist JOIN shopdetail on shoplist.id = shopdetail.id',
@@ -80,6 +76,20 @@ app.post("/post",(req, res) => {
           res.send(results);
         }
       )
+    }
+  )
+});
+
+app.post("/update/:shopId",(req, res) => {
+  const shopId = req.params.shopId;
+  const shopDetail = req.body;
+  // console.log(shopId)
+  // console.log(shopDetail)
+  // res.send("いけてるよ！");
+  con.query(
+    `UPDATE shopdetail SET shopname = '${shopDetail.shopName}', address = '${shopDetail.address}', tel = '${shopDetail.tel}' WHERE id = '${shopId}'`,
+    (error, results) => {
+      res.send(results);
     }
   )
 });

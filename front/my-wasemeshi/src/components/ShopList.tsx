@@ -1,12 +1,11 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import ShopCard from './ShopCard'
-import shopInfoType from '../interface/shopInfoType'
+import shopInfoType from '../type/shopInfoType'
 import Loading from './Loading'
 import useGetShopInfoList from '../hooks/useGetShopInfoList'
 
 const ShopList: React.FC = () => {
-  // const shopInfoList: Array<shopInfo>|null = useGetShopInfoList();
   const shopInfoList = useGetShopInfoList()
 
   if (shopInfoList !== null) {

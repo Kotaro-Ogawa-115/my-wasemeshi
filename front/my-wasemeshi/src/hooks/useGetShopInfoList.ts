@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import shopInfoType from '../interface/shopInfoType'
+import shopInfoType from '../type/shopInfoType'
 
 const useGetShopInfoList = () => {
   const [shopInfoList, setShopInfoList] = useState<shopInfoType[] | null>(null)

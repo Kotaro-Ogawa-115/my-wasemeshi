@@ -1,4 +1,4 @@
-interface shopInfoType{
+type shopInfoType = {
   id: number
   shopName: string
   date: string

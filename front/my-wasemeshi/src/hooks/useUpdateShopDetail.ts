@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {shopDetailType} from '../type/shopDetailType'
 
-const useRegistration = () => {
+const useUpdateShopDetail = () => {
   const [shopName, setShopName] = useState<string | undefined>(undefined)
   const [address, setAddress] = useState<string | undefined>(undefined)
   const [tel, setTel] = useState<string | undefined>(undefined)
@@ -17,29 +17,28 @@ const useRegistration = () => {
 
   const navigate = useNavigate()
 
-  const registryShopDetail = async() => {
-    if(shopName !== undefined && address !== undefined && tel !== undefined){
-      const shopDetail: shopDetailType = {
+  const updateShopDetail = async(shopId: string | undefined) => {
+    if(shopId !== undefined && shopName !== undefined && address !== undefined && tel !== undefined){
+      const shopDetail = {
         shopName: shopName,
         address: address,
         tel: tel,
-        date: new Date().toDateString()
       }
 
       // TODO: thenメソッドの中で、postが成功した時だけリダイレクトしたい
       // ↑やろうとするとnavigate('/')が動かない、なんで？
-      const response = await axios.post('http://localhost:3000/post', shopDetail)
+      const response = await axios.post(`http://localhost:3000/update/${shopId}`, shopDetail)
         .catch((err) => {
           return err.response
         })
 
       console.log(response);
 
-      navigate('/')
+      navigate(`/shop-info/${shopId}`)
     }
   }
 
-  return [getInputShopName, getInputAddress, getInputTel, registryShopDetail] as const
+  return {getInputShopName, getInputAddress, getInputTel, updateShopDetail}
 }
 
-export default useRegistration
+export default useUpdateShopDetail
