@@ -83,9 +83,6 @@ app.post("/post",(req, res) => {
 app.post("/update/:shopId",(req, res) => {
   const shopId = req.params.shopId;
   const shopDetail = req.body;
-  // console.log(shopId)
-  // console.log(shopDetail)
-  // res.send("いけてるよ！");
   con.query(
     `UPDATE shopdetail SET shopname = '${shopDetail.shopName}', address = '${shopDetail.address}', tel = '${shopDetail.tel}' WHERE id = '${shopId}'`,
     (error, results) => {
@@ -93,6 +90,20 @@ app.post("/update/:shopId",(req, res) => {
     }
   )
 });
+
+
+
+app.post("/delete/:shopId", (req, res) => {
+  const shopId = req.params.shopId;
+  console.log(`DELETE sl, sd FROM shoplist As sl  LEFT JOIN shopdetail As sd ON sl.id = sd.id WHERE sl.id = '8'`)
+  con.query(
+    `DELETE sl, sd FROM shoplist As sl  LEFT JOIN shopdetail As sd ON sl.id = sd.id WHERE sl.id = ${shopId}`,
+    (error, results) => {
+      console.log(results);
+      res.send(results);
+    }
+  )
+})
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, ".", "build", "index.html"));

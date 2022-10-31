@@ -1,14 +1,16 @@
 import axios from 'axios'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {shopDetailType} from '../type/shopDetailType'
 
-const useRegistration = () => {
+const useDeleteShop = () => {
+
   const navigate = useNavigate()
 
-  const registryShopDetail = async(shopDetail: shopDetailType) => {
+  const deleteShop = async(shopId: string | undefined) => {
       // TODO: thenメソッドの中で、postが成功した時だけリダイレクトしたい
       // ↑やろうとするとnavigate('/')が動かない、なんで？
-      const response = await axios.post('http://localhost:3000/post', shopDetail)
+      const response = await axios.post(`http://localhost:3000/delete/${shopId}`)
         .catch((err) => {
           return err.response
         })
@@ -16,7 +18,7 @@ const useRegistration = () => {
       navigate('/')
   }
 
-  return {registryShopDetail}
+  return {deleteShop}
 }
 
-export default useRegistration
+export default useDeleteShop
