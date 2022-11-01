@@ -1,12 +1,12 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
-import ShopCard from './ShopCard'
-import shopInfoType from '../type/shopInfoType'
-import Loading from './Loading'
-import useGetShopInfoList from '../hooks/useGetShopInfoList'
+import React from "react";
+import { Grid } from "@material-ui/core";
+import ShopCard from "./ShopCard";
+import shopInfoType from "../type/shopInfoType";
+import Loading from "./Loading";
+import useGetShopInfoList from "../hooks/useGetShopInfoList";
 
 const ShopList: React.FC = () => {
-  const shopInfoList = useGetShopInfoList()
+  const shopInfoList = useGetShopInfoList();
 
   if (shopInfoList !== null) {
     return (
@@ -15,19 +15,24 @@ const ShopList: React.FC = () => {
         <Grid lg={8} sm={8} spacing={10}>
           <ul>
             {shopInfoList.map((shopInfoProps: shopInfoType, key: number) => (
-              <ShopCard key={key} id={shopInfoProps.id} shopName={shopInfoProps.shopName} date={shopInfoProps.date} />
+              <ShopCard
+                key={key}
+                id={shopInfoProps.id}
+                shopName={shopInfoProps.shopName}
+                date={shopInfoProps.date}
+              />
             ))}
           </ul>
         </Grid>
       </Grid>
-    )
+    );
   } else {
     return (
-      <Grid container justify='center' alignItems='center'>
+      <Grid container justify="center" alignItems="center">
         <Loading />
       </Grid>
-    )
+    );
   }
-}
+};
 
-export default ShopList
+export default ShopList;

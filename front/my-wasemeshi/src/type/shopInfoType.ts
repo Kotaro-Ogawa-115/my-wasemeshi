@@ -1,7 +1,7 @@
 type shopInfoType = {
-  id: number
-  shopName: string
-  date: string
-}
+  id: number;
+  shopName: string;
+  date: string;
+};
 
-export default shopInfoType
+export default shopInfoType;
