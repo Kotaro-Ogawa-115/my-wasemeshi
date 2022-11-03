@@ -2,7 +2,7 @@ export type shopDetailType = {
   shopName: string;
   address: string;
   tel: string;
-  date: string;
+  date?: string;
 };
 
 export const isShopDetailType = (arg: any): arg is shopDetailType => {

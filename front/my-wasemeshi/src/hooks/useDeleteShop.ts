@@ -7,15 +7,13 @@ const useDeleteShop = () => {
   const navigate = useNavigate();
 
   const deleteShop = async (shopId: string | undefined) => {
-    // TODO: thenメソッドの中で、postが成功した時だけリダイレクトしたい
-    // ↑やろうとするとnavigate('/')が動かない、なんで？
     const response = await axios
       .post(`http://localhost:3000/delete/${shopId}`)
       .catch((err) => {
         return err.response;
       });
 
-    navigate("/");
+    navigate("/", { state: response.statusText });
   };
 
   return { deleteShop };

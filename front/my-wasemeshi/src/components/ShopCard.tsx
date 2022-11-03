@@ -8,13 +8,13 @@ const ShopCard: React.FC<shopInfoType> = (shop) => {
   return (
     <Link
       to={"/shop-info/" + String(shopIdNum)}
-      style={{ margin: 16, border: 0, textDecoration: "none" }}
+      style={{ border: 0, textDecoration: "none" }}
     >
-      <Card>
+      <Card style={{ marginBottom: 16 }}>
         <CardContent>
           <Typography variant="h5">{shop.shopName}</Typography>
         </CardContent>
-        <CardContent>更新日:{shop.date}</CardContent>
+        <CardContent>更新日：{shop.date}</CardContent>
       </Card>
     </Link>
   );

@@ -8,12 +8,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registration from "./components/Registration";
 import ShopInfoEditor from "./components/ShopInfoEditor";
 import ShopDeleteConfirm from "./components/ShopDeleteConfirm";
+import GridWrapper from "./components/GridWrapper";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <Grid container direction="column">
-        <Header />
+      <Header />
+      <GridWrapper>
         <Routes>
           <Route path="/" element={<ShopList />} />
           <Route path="shop-info/:shopId" element={<ShopInfo />} />
@@ -24,7 +25,7 @@ const App: React.FC = () => {
           />
           <Route path="registration" element={<Registration />} />
         </Routes>
-      </Grid>
+      </GridWrapper>
     </BrowserRouter>
   );
 };
