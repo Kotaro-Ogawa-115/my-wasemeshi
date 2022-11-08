@@ -8,7 +8,7 @@ const GridWrapper: React.FC<Props> = ({ children }) => {
   return (
     <Grid container>
       <Grid xs={2} />
-      <Grid xs={8} style={{ marginTop: 16 }}>
+      <Grid xs={8} style={{ marginTop: 32 }}>
         {children}
       </Grid>
       <Grid xs={2} />

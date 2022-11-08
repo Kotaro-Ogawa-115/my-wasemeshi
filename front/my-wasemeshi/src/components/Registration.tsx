@@ -3,6 +3,7 @@ import React from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import useRegistration from "../hooks/useRegistration";
 import { shopDetailType } from "../type/shopDetailType";
+import { CommonButton } from "./CommonButton";
 
 const Registration: React.FC = () => {
   const { registryShopDetail } = useRegistration();
@@ -47,14 +48,14 @@ const Registration: React.FC = () => {
             <TextField
               {...field}
               label={"電話番号"}
-              style={{ display: "block", marginBottom: 16 }}
+              style={{ display: "block", marginBottom: 48 }}
               fullWidth
             />
           )}
         />
-        <Button type="submit" variant="contained" color="primary">
+        <CommonButton type="submit" color="primary">
           更新
-        </Button>
+        </CommonButton>
       </form>
     </>
   );

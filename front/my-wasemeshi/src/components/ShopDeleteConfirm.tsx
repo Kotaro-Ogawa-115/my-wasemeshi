@@ -5,6 +5,7 @@ import useSWR from "swr";
 import useDeleteShop from "../hooks/useDeleteShop";
 import { shopDetailType } from "../type/shopDetailType";
 import { fetcher } from "../utils/fetcher";
+import { CommonButton } from "./CommonButton";
 import Loading from "./Loading";
 
 const ShopConfirmDelete: React.FC = () => {
@@ -27,15 +28,11 @@ const ShopConfirmDelete: React.FC = () => {
         <Typography variant="subtitle1">住所：{data.address}</Typography>
         <Typography variant="subtitle1">電話番号：{data.tel}</Typography>
         <Typography variant="subtitle1">更新日：{data.date}</Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => deleteShop(shopId)}
-        >
+        <CommonButton color="secondary" onClick={() => deleteShop(shopId)}>
           削除
-        </Button>
+        </CommonButton>
         <Link to={"/shop-info/" + shopId} style={{ textDecoration: "none" }}>
-          <Button variant="contained">戻る</Button>
+          <CommonButton>戻る</CommonButton>
         </Link>
       </>
     );

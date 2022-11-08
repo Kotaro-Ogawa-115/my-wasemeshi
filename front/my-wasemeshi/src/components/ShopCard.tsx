@@ -10,7 +10,7 @@ const ShopCard: React.FC<shopInfoType> = (shop) => {
       to={"/shop-info/" + String(shopIdNum)}
       style={{ border: 0, textDecoration: "none" }}
     >
-      <Card style={{ marginBottom: 16 }}>
+      <Card style={{ marginBottom: 16, border: "1px solid #ccc" }}>
         <CardContent>
           <Typography variant="h5">{shop.shopName}</Typography>
         </CardContent>

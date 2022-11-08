@@ -25,7 +25,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#000" }}>
+    <AppBar position="static" style={{ backgroundColor: "#B3424A" }}>
       <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
         <h1>俺のワセメシ</h1>
         <IconButton

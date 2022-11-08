@@ -4,6 +4,7 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Link, useLocation, useParams } from "react-router-dom";
 import useUpdateShopDetail from "../hooks/useUpdateShopDetail";
 import { isShopDetailType, shopDetailType } from "../type/shopDetailType";
+import { CommonButton } from "./CommonButton";
 import Loading from "./Loading";
 
 const ShopInfoEditor: React.FC = () => {
@@ -63,11 +64,11 @@ const ShopInfoEditor: React.FC = () => {
               />
             )}
           />
-          <Button type="submit" variant="contained" color="primary">
+          <CommonButton type="submit" color="primary">
             更新
-          </Button>
+          </CommonButton>
           <Link to={"/shop-info/" + shopId} style={{ textDecoration: "none" }}>
-            <Button variant="contained">戻る</Button>
+            <CommonButton>戻る</CommonButton>
           </Link>
         </form>
       </>

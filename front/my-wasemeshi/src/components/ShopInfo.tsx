@@ -4,6 +4,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import useSWR from "swr";
 import { shopDetailType } from "../type/shopDetailType";
 import { fetcher } from "../utils/fetcher";
+import { CommonButton } from "./CommonButton";
 import Loading from "./Loading";
 import SnackBar from "./SnackBar";
 
@@ -31,18 +32,16 @@ const ShopInfo: React.FC = () => {
           state={data}
           style={{ marginRight: 8, textDecoration: "none" }}
         >
-          <Button variant="contained">編集</Button>
+          <CommonButton>編集</CommonButton>
         </Link>
         <Link
           to={"/confirm-delete/" + shopId}
           style={{ marginRight: 8, textDecoration: "none" }}
         >
-          <Button variant="contained" color="secondary">
-            削除
-          </Button>
+          <CommonButton color="secondary">削除</CommonButton>
         </Link>
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <Button variant="contained">戻る</Button>
+          <CommonButton>戻る</CommonButton>
         </Link>
         <SnackBar></SnackBar>
       </>
